@@ -1,0 +1,44 @@
+<div class="container">
+    <div *ngIf="cartData.length == 0;else elseblock">
+        No product in your cart
+   </div>
+  
+    <div class="row">
+            <ng-template #elseblock>
+              <div class="row">
+                <div class="col-md-4">
+                    <form action="#">
+                        <select name="languages" #teams id="lang" (change)="handleChange(teams.value)" >
+                          <option value="select">Select de sep xep</option>
+                          <option value="increase">Tang theo ten sp</option>
+                          <option value="decrease">Giam theo ten sp</option>
+                        </select>
+                  </form>
+                </div>
+                <div class="col-md-5">
+                    <select name="languages" #team id="lang" (change)="handleChangeAmount(team.value)" >
+                        <option value="select">Select to show so luon sp</option>
+                        <option value="2">1 sp</option>
+                        <option value="3">2 sp</option>
+                      </select>
+                </div>
+              </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngFor="let da of cartData">
+                    <div class="media">
+                        <a class="pull-left" href="#" style="width: 200px;">
+                            <img class="media-object" [src]="da.img" alt="Image" style="width: 100%;">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{da.name}}</h4>
+                            <p>{{da.price}}</p>
+                            <input type="text" value="{{da.amount}}">
+                            
+                            <button type="button" class="btn btn-danger">Xoa</button>
+                            
+                        </div>
+                    </div>
+                </div>
+        </ng-template>
+
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    
+ 
+
+
+   <div class="row">
+    <div class="col-md-5">
+        <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action active">
+             category
+            </button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="handleClick(1)">Ao 1</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="handleClick(2)">Ao 2</button>
+            <button type="button" class="list-group-item list-group-item-action" (click)="handleClick(3)">Ao 3</button>
+          </div>
+        </div>
+
+        <div class="col-md-7">
+          
+          <form action="" method="POST" role="form">
+          
+            <label for="">Tim kiem san pham</label>
+            <input type="text" name="value" [(ngModel)]="value" id="input" class="form-control" required="required" title="">
+
+            <h2>{{ value }}</h2>
+          
+          </form>
+          
+            
+            
+        </div>
+    </div>
+   
+   </div>
+    <div class="row">
+        
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" *ngFor="let dataitem of data">
+
+            <div class="card">
+               <a [routerLink]="['/detail', dataitem.id]"> <img class="card-img-top" [src]="dataitem.img" alt="Title"></a>
+                <div class="card-body">
+                    <h4 class="card-title">{{dataitem.name}}</h4>
+                    <p class="card-text">{{dataitem.price}}</p>
+                    
+                    <button type="button" class="btn btn-danger" (click)="handleAddtocart(dataitem.id)">Add to cart</button>
+                    
+                </div>
+            </div>
+
+
+           
+        </div>
+        
+    </div>
+
+  
